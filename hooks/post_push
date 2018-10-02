@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# not using $SOURCE_COMMIT as it is always empty
+# so use git command instead
+HEAD_COMMIT=$(git rev-parse HEAD)
+
+# Get short sha1
+SHORT_TAG=${HEAD_COMMIT:0:12}
+
+# tag with sha1 as well
+echo tagging with command docker tag $IMAGE_NAME $DOCKER_REPO:$SHORT_TAG
+docker tag $IMAGE_NAME $DOCKER_REPO:$SHORT_TAG
+
+# push the image
+echo pushing the image with command docker push $DOCKER_REPO:$SHORT_TAG
+docker push $DOCKER_REPO:$SHORT_TAG
