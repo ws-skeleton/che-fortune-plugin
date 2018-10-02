@@ -2,3 +2,21 @@
 
 Example of a plugin requiring the `fortune` tool being installed.
 
+
+# How to run manually
+
+
+Run theia endpoint with fortune tool installed
+```
+$ docker run --rm -p 10000:10000 -v path-to-unpacked-plugins:/plugins -e THEIA_PLUGIN_ENDPOINT_PORT=10000 wsskeleton/fortune
+
+```
+
+Run Theia image
+assuming ip of endpoint is 172.17.0.2
+```
+$ docker run -p 3000:3000 -e THEIA_PLUGIN_ENDPOINT_ADDRESS_0=ws://172.17.0.2:10000 -e THEIA_PLUGIN_ENDPOINT_MAPPING_che_che_fortune_plugin=ws://172.17.0.2:10000 -v path-to-unpacked-plugins:/plugins -e THEIA_PLUGINS=local-dir:///plugins eclipse/che-theia:nightly
+```
+
+
+Note: plug-ins need to be unpacked else theia process will unpack theia file only in the main container and endpoint container won't see that file
