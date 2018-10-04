@@ -1,0 +1,5 @@
+id: che-fortune-plugin
+containers:
+ - name: theia-fortune-plugin
+   image: wsskeleton/fortune
+   memory-limit: "700Mi"
