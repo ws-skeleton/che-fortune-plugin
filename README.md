@@ -18,7 +18,7 @@ so endpoint will be ws://172.17.0.2:10000 for that endpoint later
 Run Theia image (in the command below it's a local image so name may be different)
 assuming ip of endpoint is 172.17.0.2
 ```
-$ docker run -p 3000:3000 -e THEIA_PLUGIN_ENDPOINT_ADDRESS_0=ws://172.17.0.2:10000 -e THEIA_PLUGIN_ENDPOINT_MAPPING_che_che_fortune_plugin=ws://172.17.0.2:10000 -v path-to-unpacked-plugins:/plugins -e THEIA_PLUGINS=local-dir:///plugins eclipse/che-theia:nightly
+$ docker run -p 3000:3000 -e THEIA_PLUGIN_REMOTE_ENDPOINT_che_che_fortune_plugin=ws://172.17.0.2:10000 -v path-to-unpacked-plugins:/plugins -e THEIA_PLUGINS=local-dir:///plugins eclipse/che-theia:nightly
 ```
 
 For mapping Env var, plugin's ID is computed in typescript with
